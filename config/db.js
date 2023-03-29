@@ -7,7 +7,13 @@ const sequelize = new Sequelize('telasonce_db', 'root', 'w3pmL72kLCzyCJqpDlE9zZM
     host: 'dpg-cf3ihph4rebfa0p7hcqg-a.oregon-postgres.render.com', 
     dialect: 'postgres',
     dialectOptions: {ssl: true,
-        native:true}
+        native:true},
+        pool: {
+            max: 5,
+            min: 0,
+            idle: 300000,
+            acquire: 300000
+          },
     // port: 5432
   })
 
