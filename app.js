@@ -21,7 +21,7 @@ app.get('/',async (req, res) =>  {
     //res.send('¡Hola mundo!');
  });
 
-
- app.listen(3000, () =>
+const port = process.env.PORT || 3000
+ app.listen(port , () =>
  console.log('Servidor corriendo','http://localhost:3000/')
 );
