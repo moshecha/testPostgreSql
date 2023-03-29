@@ -8,12 +8,16 @@ const sequelize = new Sequelize('telasonce_db', 'root', 'w3pmL72kLCzyCJqpDlE9zZM
     dialect: 'postgres',
     dialectOptions: {ssl: true,
         native:true},
+        acquireConnectionTimeout: 5000,
         pool: {
-            max: 5,
-            min: 0,
-            idle: 300000,
-            acquire: 300000
-          },
+          min: 0,
+          max: 10,
+          createTimeoutMillis: 8000,
+          acquireTimeoutMillis: 8000,
+          idleTimeoutMillis: 8000,
+          reapIntervalMillis: 1000,
+          createRetryIntervalMillis: 100,
+        },
     // port: 5432
   })
 
